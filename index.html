@@ -1,0 +1,1874 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مستقبل - منصة الحلول التقنية المتقدمة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0a192f;
+            --secondary-color: #64ffda;
+            --accent-color: #ff2d75;
+            --light-color: #ccd6f6;
+            --dark-color: #020c1b;
+            --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            --box-shadow: 0 10px 30px rgba(2, 12, 27, 0.7);
+            --transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--dark-color);
+            color: var(--light-color);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        
+        /* التخصيصات العامة */
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .section-title {
+            font-size: 2.8rem;
+            margin-bottom: 70px;
+            text-align: center;
+            position: relative;
+            color: var(--light-color);
+            font-weight: 700;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 5px;
+            background: var(--secondary-color);
+            margin: 20px auto;
+            border-radius: 5px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            color: var(--light-color);
+            opacity: 0.8;
+            font-size: 1.2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: transparent;
+            color: var(--secondary-color);
+            padding: 15px 35px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 700;
+            border: 2px solid var(--secondary-color);
+            transition: var(--transition);
+            cursor: pointer;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(100, 255, 218, 0.1);
+            transition: var(--transition);
+        }
+        
+        .btn:hover {
+            transform: translate(-5px, -5px);
+            box-shadow: 5px 5px 0 var(--secondary-color);
+        }
+        
+        .btn:hover::before {
+            left: 0;
+        }
+        
+        .btn-accent {
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+        
+        .btn-accent:hover {
+            box-shadow: 5px 5px 0 var(--accent-color);
+        }
+        
+        .btn-accent::before {
+            background: rgba(255, 45, 117, 0.1);
+        }
+        
+        /* أنماط الزر المتحرك للخدمات */
+        .service-animated-button {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            padding: 10px 24px;
+            border: 2px solid transparent;
+            font-size: 14px;
+            background-color: transparent;
+            border-radius: 100px;
+            font-weight: 500;
+            color: var(--secondary-color);
+            box-shadow: 0 0 0 1px var(--secondary-color);
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            width: fit-content;
+            margin: 15px auto 0;
+            text-decoration: none;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        .service-animated-button svg {
+            position: absolute;
+            width: 16px;
+            fill: var(--secondary-color);
+            z-index: 9;
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .service-animated-button .arr-1 {
+            right: 12px;
+        }
+
+        .service-animated-button .arr-2 {
+            left: -25%;
+        }
+
+        .service-animated-button .circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+            opacity: 0;
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .service-animated-button .text {
+            position: relative;
+            z-index: 1;
+            transform: translateX(-12px);
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .service-animated-button:hover {
+            box-shadow: 0 0 0 12px transparent;
+            color: var(--primary-color);
+            border-radius: 12px;
+        }
+
+        .service-animated-button:hover .arr-1 {
+            right: -25%;
+        }
+
+        .service-animated-button:hover .arr-2 {
+            left: 12px;
+        }
+
+        .service-animated-button:hover .text {
+            transform: translateX(12px);
+        }
+
+        .service-animated-button:hover svg {
+            fill: var(--primary-color);
+        }
+
+        .service-animated-button:active {
+            scale: 0.95;
+            box-shadow: 0 0 0 4px var(--secondary-color);
+        }
+
+        .service-animated-button:hover .circle {
+            width: 220px;
+            height: 220px;
+            opacity: 1;
+        }
+
+        /* الشريط العلوي */
+        .top-bar {
+            background-color: rgba(10, 25, 47, 0.9);
+            color: var(--light-color);
+            padding: 10px 0;
+            font-size: 0.9rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .contact-info {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .contact-info a {
+            color: var(--light-color);
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .contact-info a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            color: var(--light-color);
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* رأس الصفحة */
+        header {
+            position: fixed;
+            top: 40px;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            top: 0;
+            background-color: rgba(10, 25, 47, 0.9);
+            box-shadow: 0 5px 20px rgba(2, 12, 27, 0.7);
+            padding: 15px 0;
+            backdrop-filter: blur(10px);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(10, 25, 47, 0.8);
+            padding: 15px 30px;
+            border-radius: 5px;
+            box-shadow: var(--box-shadow);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo img {
+            height: 40px;
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--light-color);
+            text-decoration: none;
+        }
+        
+        .logo-text span {
+            color: var(--secondary-color);
+        }
+        
+        /* قائمة التنقل */
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        nav ul li a {
+            color: var(--light-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+            left: 0;
+            right: auto;
+        }
+        
+        nav ul li a.active {
+            color: var(--secondary-color);
+            font-weight: 700;
+        }
+        
+        nav ul li a.active::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1002;
+        }
+        
+        /* القسم الرئيسي */
+        .hero {
+            height: 100vh;
+            min-height: 800px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1639762681057-408e52192e55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2232&q=80') no-repeat center center/cover;
+            z-index: -2;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 25, 47, 0.9);
+            z-index: -1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        
+        .hero h1 span {
+            color: var(--secondary-color);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 600px;
+        }
+        
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--light-color);
+            font-size: 1.5rem;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            z-index: 2;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+        
+        /* تأثيرات الشيفرات البرمجية */
+        .code-effect {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+            opacity: 0.1;
+        }
+        
+        .code-line {
+            position: absolute;
+            font-family: monospace;
+            color: var(--secondary-color);
+            font-size: 1rem;
+            white-space: nowrap;
+            animation: moveCode 20s linear infinite;
+        }
+        
+        @keyframes moveCode {
+            0% {
+                transform: translateY(0) translateX(0);
+            }
+            100% {
+                transform: translateY(-100vh) translateX(-100vw);
+            }
+        }
+        
+        /* قسم الخدمات */
+        .services {
+            background-color: var(--primary-color);
+            position: relative;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: rgba(2, 12, 27, 0.7);
+            border-radius: 5px;
+            padding: 40px 30px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(100, 255, 218, 0.1), transparent);
+            z-index: -1;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(2, 12, 27, 0.9);
+            border-color: rgba(100, 255, 218, 0.3);
+        }
+        
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(100, 255, 218, 0.1);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: var(--secondary-color);
+            font-size: 1.8rem;
+            border: 1px solid rgba(100, 255, 218, 0.3);
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--light-color);
+        }
+        
+        .service-card p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        
+        /* قسم التقنيات */
+        .technologies {
+            background-color: var(--dark-color);
+            position: relative;
+        }
+        
+        .tech-slider-container {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .tech-slider {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            padding: 20px 0;
+        }
+        
+        .tech-slider::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .tech-item {
+            min-width: 150px;
+            height: 150px;
+            background: rgba(2, 12, 27, 0.7);
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--box-shadow);
+            padding: 20px;
+            transition: var(--transition);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            scroll-snap-align: start;
+        }
+        
+        .tech-item:hover {
+            transform: scale(1.05);
+            border-color: rgba(100, 255, 218, 0.3);
+        }
+        
+        .tech-item img {
+            height: 60px;
+            margin-bottom: 15px;
+            object-fit: contain;
+            filter: grayscale(100%) brightness(0.8);
+            transition: var(--transition);
+        }
+        
+        .tech-item:hover img {
+            filter: grayscale(0%) brightness(1);
+        }
+        
+        .tech-item span {
+            color: var(--light-color);
+            font-weight: 500;
+        }
+        
+        /* قسم المشاريع */
+        .projects {
+            position: relative;
+            background-color: var(--primary-color);
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            position: relative;
+            border-radius: 5px;
+            overflow: hidden;
+            height: 300px;
+            box-shadow: var(--box-shadow);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        .project-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 25, 47, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+        
+        .project-card:hover .project-img {
+            transform: scale(1.1);
+        }
+        
+        .project-overlay h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .project-overlay p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .project-tech span {
+            background: rgba(100, 255, 218, 0.1);
+            color: var(--secondary-color);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-family: monospace;
+        }
+        
+        /* قسم العملاء */
+        .clients {
+            background-color: var(--dark-color);
+        }
+        
+        .client-logos {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .client-logos img {
+            height: 60px;
+            opacity: 0.6;
+            transition: var(--transition);
+            filter: grayscale(100%) brightness(0.8);
+        }
+        
+        .client-logos img:hover {
+            opacity: 1;
+            filter: grayscale(0%) brightness(1);
+        }
+        
+        /* قسم الإحصائيات */
+        .stats {
+            background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+            position: relative;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .stat-item {
+            padding: 20px;
+            position: relative;
+        }
+        
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(100, 255, 218, 0.05);
+            border-radius: 5px;
+            z-index: -1;
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+            font-family: monospace;
+        }
+        
+        .stat-text {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        /* قسم الفريق */
+        .team {
+            background-color: var(--primary-color);
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .team-member {
+            background: rgba(2, 12, 27, 0.7);
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            border-color: rgba(100, 255, 218, 0.3);
+        }
+        
+        .member-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .member-info {
+            padding: 25px 20px;
+        }
+        
+        .member-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: var(--light-color);
+        }
+        
+        .member-info p {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .member-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .member-social a {
+            color: var(--light-color);
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+        
+        .member-social a:hover {
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* قسم الاتصال */
+        .contact {
+            background-color: var(--dark-color);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(100, 255, 218, 0.1);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            border: 1px solid rgba(100, 255, 218, 0.3);
+        }
+        
+        .contact-text h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: var(--light-color);
+        }
+        
+        .contact-text a {
+            color: var(--light-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .contact-text a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .contact-form {
+            background: rgba(2, 12, 27, 0.7);
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: var(--box-shadow);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+            color: var(--light-color);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            background: rgba(100, 255, 218, 0.05);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+            color: var(--light-color);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 2px rgba(100, 255, 218, 0.2);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* الخريطة */
+        .map {
+            height: 400px;
+            margin-top: 50px;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        .map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* التذييل */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 80px 0 30px;
+            position: relative;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+            color: var(--light-color);
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+        
+        .footer-col p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: var(--light-color);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: var(--transition);
+            display: block;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            padding-right: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(100, 255, 218, 0.1);
+            border-radius: 5px;
+            color: var(--light-color);
+            transition: var(--transition);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+        }
+        
+        .footer-social a:hover {
+            background: var(--secondary-color);
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(100, 255, 218, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        /* تأثيرات التمرير */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* القائمة المتنقلة */
+        @media (max-width: 992px) {
+            .header-container {
+                padding: 15px 20px;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 400px;
+                height: 100vh;
+                background-color: var(--primary-color);
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                transition: var(--transition);
+                z-index: 1001;
+                padding: 80px 30px 30px;
+                backdrop-filter: blur(10px);
+                border-left: 1px solid rgba(100, 255, 218, 0.1);
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul li a {
+                font-size: 1.2rem;
+                color: var(--light-color);
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .close-menu {
+                position: absolute;
+                top: 25px;
+                left: 25px;
+                font-size: 1.8rem;
+                cursor: pointer;
+                color: var(--light-color);
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .top-bar .container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .hero {
+                min-height: 700px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: 50px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .header-container {
+                padding: 10px 15px;
+            }
+            
+            .logo-text {
+                font-size: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-form {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- تأثيرات الشيفرات البرمجية -->
+    <div class="code-effect" id="codeEffect"></div>
+    
+    <!-- رأس الصفحة -->
+    <header id="header">
+        <div class="container">
+            <div class="header-container">
+                <a href="index.html" class="logo">
+                    <img src="https://via.placeholder.com/40" alt="مستقبل">
+                    <span class="logo-text">مستق<span>بل</span></span>
+                </a>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <nav id="mainNav">
+                    <span class="close-menu" id="closeMenu"></i></span>
+                    <ul>
+                        <li><a href="#home" class="active">الرئيسية</a></li>
+                        <li><a href="#services">الخدمات</a></li>
+                        <li><a href="#technologies">التقنيات</a></li>
+                        <li><a href="#projects">المشاريع</a></li>
+                        <li><a href="#team">الفريق</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                        <li><a href="come soon.html">المدونة</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <!-- القسم الرئيسي -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>نحو <span>مستقبل رقمي</span> أكثر ذكاءً وابتكاراً</h1>
+                <p>نقدم حلولاً تقنية متقدمة تعتمد على أحدث التقنيات مثل الذكاء الاصطناعي، الحوسبة السحابية، وتطوير البرمجيات المتطورة لمساعدة مؤسستك على التحول الرقمي والتفوق في عصر التكنولوجيا.</p>
+                <div class="hero-btns">
+                    <a href="contact.html" class="btn">ابدأ مشروعك الآن</a>
+                    <a href="#services" class="btn btn-accent">استكشف خدماتنا</a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-down" id="scrollDown">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+    
+    <!-- قسم الخدمات -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title fade-in">خدماتنا</h2>
+            <p class="section-subtitle fade-in">نقدم مجموعة متكاملة من الحلول التقنية المتقدمة التي تلبي احتياجات العصر الرقمي</p>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>تطوير البرمجيات</h3>
+                    <p>حلول برمجية مخصصة باستخدام أحدث التقنيات مثل Node.js, Python, .NET لتلبية احتياجات عملك بدقة عالية وأداء ممتاز</p>
+                    <a href="Software development.html" class="service-animated-button">
+                        <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                        </svg>
+                        <span class="text">المزيد من التفاصيل</span>
+                        <span class="circle"></span>
+                        <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>تطبيقات الجوال</h3>
+                    <p>تصميم وتطوير تطبيقات جوال متقدمة باستخدام Flutter و React Native مع دعم للواقع المعزز والذكاء الاصطناعي</p>
+                    <a href="Mobile applications.html" class="service-animated-button">
+                        <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                        </svg>
+                        <span class="text">المزيد من التفاصيل</span>
+                        <span class="circle"></span>
+                        <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>الحلول السحابية</h3>
+                    <p>بنية تحتية سحابية متقدمة باستخدام AWS، Azure و Google Cloud مع حلول CI/CD وإدارة كاملة</p>
+                    <a href="Cloud.html" class="service-animated-button">
+                        <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                        </svg>
+                        <span class="text">المزيد من التفاصيل</span>
+                        <span class="circle"></span>
+                        <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>الذكاء الاصطناعي</h3>
+                    <p>دمج تقنيات الذكاء الاصطناعي وتعلم الآلة مثل TensorFlow و PyTorch لتحليل البيانات واتخاذ القرارات الذكية</p>
+                    <a href="Artificial intelligence.html" class="service-animated-button">
+                        <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                        </svg>
+                        <span class="text">المزيد من التفاصيل</span>
+                        <span class="circle"></span>
+                        <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>تحليل البيانات</h3>
+                    <p>حلول متكاملة لتحليل البيانات الكبيرة باستخدام Power BI، Tableau و Python لاستخراج رؤى قابلة للتنفيذ</p>
+                    <a href="Data analytics.html" class="service-animated-button">
+                        <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                        </svg>
+                        <span class="text">المزيد من التفاصيل</span>
+                        <span class="circle"></span>
+                        <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>الأمن السيبراني</h3>
+                    <p>حلول أمنية متقدمة تشمل اختبار الاختراق، تحليل الثغرات وتطبيق معايير ISO 27001 و NIST</p>
+                    <a href="Cybersecurity Service.html" class="service-animated-button">
+                        <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                        </svg>
+                        <span class="text">المزيد من التفاصيل</span>
+                        <span class="circle"></span>
+                        <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>أنظمة كاميرات المراقبة</h3>
+                    <p>تركيب وتشغيل أنظمة مراقبة متكاملة مع تحليل ذكي للفيديو وتسجيل سحابي وحلول متكاملة للأمن والسلامة</p>
+                    <a href="Surveillance camera systems.html" class="service-animated-button">
+                        <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                        </svg>
+                        <span class="text">المزيد من التفاصيل</span>
+                        <span class="circle"></span>
+                        <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>حلول الشبكات</h3>
+                    <p>تصميم وتنفيذ شبكات متكاملة مع حلول أمنية متقدمة ومراقبة مستمرة للأداء والسلامة</p>
+                    <a href="Network solutions.html" class="service-animated-button">
+                        <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                        </svg>
+                        <span class="text">المزيد من التفاصيل</span>
+                        <span class="circle"></span>
+                        <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>استضافة متقدمة</h3>
+                    <p>حلول استضافة عالية الأداء مع إدارة كاملة ونسخ احتياطي تلقائي وحماية من الهجمات</p>
+                    <a href="Website hosting.html" class="service-animated-button">
+                        <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                        </svg>
+                        <span class="text">المزيد من التفاصيل</span>
+                        <span class="circle"></span>
+                        <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>تحسين محركات البحث</h3>
+                    <p>تحليل ورفع ترتيب موقعك في نتائج البحث باستخدام أحدث استراتيجيات SEO والتسويق الرقمي</p>
+                    <a href="seo.html" class="service-animated-button">
+                        <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                        </svg>
+                        <span class="text">المزيد من التفاصيل</span>
+                        <span class="circle"></span>
+                        <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- قسم التقنيات -->
+    <section class="technologies" id="technologies">
+        <div class="container">
+            <h2 class="section-title fade-in">تقنيات نعمل بها</h2>
+            <p class="section-subtitle fade-in">نستخدم أحدث التقنيات والأدوات لتقديم حلول متطورة تلبي أعلى معايير الجودة</p>
+            <div class="tech-slider-container">
+                <div class="tech-slider">
+                    <div class="tech-item fade-in">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
+                        <span>React.js</span>
+                    </div>
+                    <div class="tech-item fade-in">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js">
+                        <span>Node.js</span>
+                    </div>
+                    <div class="tech-item fade-in">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+                        <span>Python</span>
+                    </div>
+                    <div class="tech-item fade-in">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django">
+                        <span>Django</span>
+                    </div>
+                    <div class="tech-item fade-in">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow">
+                        <span>TensorFlow</span>
+                    </div>
+                    <div class="tech-item fade-in">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure">
+                        <span>Azure</span>
+                    </div>
+                    <div class="tech-item fade-in">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker">
+                        <span>Docker</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- قسم المشاريع -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2 class="section-title fade-in">أحدث مشاريعنا</h2>
+            <p class="section-subtitle fade-in">بعض المشاريع التي نفخر بها والتي تعكس مدى تطورنا التقني وإبداعنا</p>
+            <div class="projects-grid">
+                <div class="project-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="مشروع 1" class="project-img">
+                    <div class="project-overlay">
+                        <h3>نظام إدارة المستشفيات</h3>
+                        <p>نظام متكامل لإدارة كافة عمليات المستشفى باستخدام تقنيات الذكاء الاصطناعي</p>
+                        <div class="project-tech">
+                            <span>React</span>
+                            <span>Node.js</span>
+                            <span>MongoDB</span>
+                            <span>TensorFlow</span>
+                        </div>
+                        <a href="come soon.html" class="btn">عرض التفاصيل</a>
+                    </div>
+                </div>
+                
+                <div class="project-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="مشروع 2" class="project-img">
+                    <div class="project-overlay">
+                        <h3>منصة تعليم إلكتروني</h3>
+                        <p>بيئة تعليمية تفاعلية مع نظام توصيل محتوى ذكي يعتمد على تحليل البيانات</p>
+                        <div class="project-tech">
+                            <span>Vue.js</span>
+                            <span>Django</span>
+                            <span>PostgreSQL</span>
+                            <span>Python</span>
+                        </div>
+                        <a href="come soon.html" class="btn">عرض التفاصيل</a>
+                    </div>
+                </div>
+                
+                <div class="project-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2093&q=80" alt="مشروع 3" class="project-img">
+                    <div class="project-overlay">
+                        <h3>تطبيق توصيل ذكي</h3>
+                        <p>تطبيق جوال يستخدم خوارزميات الذكاء الاصطناعي لتحسين مسارات التوصيل</p>
+                        <div class="project-tech">
+                            <span>Flutter</span>
+                            <span>Firebase</span>
+                            <span>Google Maps API</span>
+                            <span>Dart</span>
+                        </div>
+                        <a href="come soon.html" class="btn">عرض التفاصيل</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- قسم العملاء -->
+    <section class="clients">
+        <div class="container">
+            <h2 class="section-title fade-in">عملاؤنا</h2>
+            <p class="section-subtitle fade-in">شركات واعدة وثقت بخبراتنا التقنية لتحقيق أهدافها الرقمية</p>
+            <div class="client-logos">
+                <img src="https://via.placeholder.com/200x80" alt="عميل 1" class="fade-in">
+                <img src="https://via.placeholder.com/200x80" alt="عميل 2" class="fade-in">
+                <img src="https://via.placeholder.com/200x80" alt="عميل 3" class="fade-in">
+                <img src="https://via.placeholder.com/200x80" alt="عميل 4" class="fade-in">
+                <img src="https://via.placeholder.com/200x80" alt="عميل 5" class="fade-in">
+            </div>
+        </div>
+    </section>
+    
+    <!-- قسم الإحصائيات -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item fade-in">
+                    <div class="stat-number" data-count="150">0</div>
+                    <div class="stat-text">مشروع مكتمل</div>
+                </div>
+                <div class="stat-item fade-in">
+                    <div class="stat-number" data-count="50">0</div>
+                    <div class="stat-text">عميل راضٍ</div>
+                </div>
+                <div class="stat-item fade-in">
+                    <div class="stat-number" data-count="30">0</div>
+                    <div class="stat-text">جائزة وتكريم</div>
+                </div>
+                <div class="stat-item fade-in">
+                    <div class="stat-number" data-count="40">0</div>
+                    <div class="stat-text">خبير تقني</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- قسم الفريق -->
+    <section class="team" id="team">
+        <div class="container">
+            <h2 class="section-title fade-in">فريقنا</h2>
+            <p class="section-subtitle fade-in">خبراء تقنيون متخصصون في أحدث التقنيات وبرمجيات المستقبل</p>
+            <div class="team-grid">
+                <div class="team-member fade-in" onclick="window.location.href='come soon.html'">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" alt="عضو الفريق 1" class="member-img">
+                    <div class="member-info">
+                        <h3>أحمد محمد</h3>
+                        <p>خبير الذكاء الاصطناعي</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member fade-in" onclick="window.location.href='come soon.html'">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=988&q=80" alt="عضو الفريق 2" class="member-img">
+                    <div class="member-info">
+                        <h3>سارة عبدالله</h3>
+                        <p>مهندسة برمجيات</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member fade-in" onclick="window.location.href='protofileo.html'">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" alt="عضو الفريق 3" class="member-img">
+                    <div class="member-info">
+                        <h3>احمد علي</h3>
+                        <p>مطور ويب متقدم</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member fade-in" onclick="window.location.href='come soon.html'">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1061&q=80" alt="عضو الفريق 4" class="member-img">
+                    <div class="member-info">
+                        <h3>لمى علي</h3>
+                        <p>خبيرة أمن سيبراني</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-member fade-in" onclick="window.location.href='come soon.html'">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" alt="عضو الفريق 5" class="member-img">
+                    <div class="member-info">
+                        <h3>يوسف أحمد</h3>
+                        <p>مهندس أنظمة سحابية</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-member fade-in" onclick="window.location.href='come soon.html'">
+                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" alt="عضو الفريق 6" class="member-img">
+                    <div class="member-info">
+                        <h3>نورة خالد</h3>
+                        <p>مصممة واجهات مستخدم</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-member fade-in" onclick="window.location.href='come soon.html'">
+                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" alt="عضو الفريق 7" class="member-img">
+                    <div class="member-info">
+                        <h3>علي محمود</h3>
+                        <p>خبير أنظمة مراقبة</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-member fade-in" onclick="window.location.href='come soon.html'">
+                    <img src="https://images.unsplash.com/photo-1573497019708-3235f5ca0a2e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=988&q=80" alt="عضو الفريق 8" class="member-img">
+                    <div class="member-info">
+                        <h3>هدى وليد</h3>
+                        <p>مديرة مشاريع</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <!-- التذييل -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>عن مستقبل</h3>
+                    <p>شركة رائدة في مجال الحلول التقنية المتقدمة، نقدم خدمات متكاملة تساعد مؤسستك على التحول الرقمي والتفوق في عصر التكنولوجيا.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-dev"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#services">الخدمات</a></li>
+                        <li><a href="#projects">المشاريع</a></li>
+                        <li><a href="#team">الفريق</a></li>
+                        <li><a href="#contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>خدماتنا</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">تطوير البرمجيات</a></li>
+                        <li><a href="#">تطبيقات الجوال</a></li>
+                        <li><a href="#">الحلول السحابية</a></li>
+                        <li><a href="#">الذكاء الاصطناعي</a></li>
+                        <li><a href="#">الأمن السيبراني</a></li>
+                        <li><a href="#">كاميرات المراقبة</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>النشرة البريدية</h3>
+                    <p>اشترك في نشرتنا البريدية لتصلك آخر أخبارنا وعروضنا.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="بريدك الإلكتروني" class="form-control">
+                        <button type="submit" class="btn">اشتراك</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 مستقبل. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // تأثيرات الشيفرات البرمجية
+        const codeEffect = document.getElementById('codeEffect');
+        const codeLines = [
+            'const future = new Future();',
+            'function innovate() { return true; }',
+            'class Solution { constructor() { this.tech = "advanced"; } }',
+            'async function transform() { await digitalTransformation(); }',
+            'const AI = new ArtificialIntelligence();',
+            'let cloud = new CloudSolutions();',
+            'while(true) { innovate(); }',
+            'export default futureTechnology;',
+            '// مستقبل التقنية يبدأ هنا',
+            'interface TechSolution { innovate(): boolean; }',
+            'type DigitalFuture = { AI: boolean; Cloud: boolean; }',
+            'const solutions: TechSolution[] = [];'
+        ];
+        
+        for (let i = 0; i < 20; i++) {
+            const codeLine = document.createElement('div');
+            codeLine.className = 'code-line';
+            codeLine.textContent = codeLines[Math.floor(Math.random() * codeLines.length)];
+            codeLine.style.top = Math.random() * 100 + 'vh';
+            codeLine.style.left = Math.random() * 100 + 'vw';
+            codeLine.style.animationDuration = (Math.random() * 20 + 10) + 's';
+            codeLine.style.animationDelay = (Math.random() * 5) + 's';
+            codeEffect.appendChild(codeLine);
+        }
+        
+        // التنقل المتنقل
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const closeMenu = document.getElementById('closeMenu');
+        const mainNav = document.getElementById('mainNav');
+        
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            mainNav.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeMenu.addEventListener('click', () => {
+            mainNav.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
+        // إغلاق القائمة عند النقر خارجها
+        document.addEventListener('click', (e) => {
+            if (!mainNav.contains(e.target) && !mobileMenuBtn.contains(e.target) && mainNav.classList.contains('active')) {
+                mainNav.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // إغلاق القائمة عند النقر على رابط
+        document.querySelectorAll('#mainNav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // تثبيت الرأس عند التمرير
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // تأثير التمرير السلس
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // زر التمرير للأسفل
+        const scrollDown = document.getElementById('scrollDown');
+        scrollDown.addEventListener('click', () => {
+            window.scrollTo({
+                top: document.getElementById('services').offsetTop - 80,
+                behavior: 'smooth'
+            });
+        });
+        
+        // تأثير الظهور عند التمرير
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', fadeInOnScroll);
+        window.addEventListener('load', fadeInOnScroll);
+        
+        // عداد الإحصائيات
+        const statNumbers = document.querySelectorAll('.stat-number');
+        const speed = 200;
+        
+        const animateCounters = () => {
+            statNumbers.forEach(statNumber => {
+                const target = +statNumber.getAttribute('data-count');
+                const count = +statNumber.innerText;
+                const increment = target / speed;
+                
+                if (count < target) {
+                    statNumber.innerText = Math.ceil(count + increment);
+                    setTimeout(animateCounters, 1);
+                } else {
+                    statNumber.innerText = target;
+                }
+            });
+        };
+        
+        // تنشيط العداد عندما يصبح القسم مرئيًا
+        const statsSection = document.querySelector('.stats');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        observer.observe(statsSection);
+        
+        // إرسال نموذج الاتصال
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // هنا يمكنك إضافة كود إرسال النموذج
+            alert('تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.');
+            contactForm.reset();
+        });
+    </script>
+</body>
+</html>

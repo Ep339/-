@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الخدمات السحابية - مستقبل | منصة الحلول التقنية المتقدمة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0a192f;
+            --secondary-color: #64ffda;
+            --accent-color: #ff2d75;
+            --light-color: #ccd6f6;
+            --dark-color: #020c1b;
+            --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            --box-shadow: 0 10px 30px rgba(2, 12, 27, 0.7);
+            --transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--dark-color);
+            color: var(--light-color);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .section-title {
+            font-size: 2.8rem;
+            margin-bottom: 70px;
+            text-align: center;
+            position: relative;
+            color: var(--light-color);
+            font-weight: 700;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 5px;
+            background: var(--secondary-color);
+            margin: 20px auto;
+            border-radius: 5px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            color: var(--light-color);
+            opacity: 0.8;
+            font-size: 1.2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: transparent;
+            color: var(--secondary-color);
+            padding: 15px 35px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 700;
+            border: 2px solid var(--secondary-color);
+            transition: var(--transition);
+            cursor: pointer;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn:hover {
+            transform: translate(-5px, -5px);
+            box-shadow: 5px 5px 0 var(--secondary-color);
+        }
+        
+        .btn-accent {
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+        
+        .btn-accent:hover {
+            box-shadow: 5px 5px 0 var(--accent-color);
+        }
+        
+        /* أنماط الصفحة الداخلية */
+        .service-hero {
+            height: 60vh;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80') no-repeat center center/cover;
+            z-index: -2;
+        }
+        
+        .service-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 25, 47, 0.9);
+            z-index: -1;
+        }
+        
+        .service-hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            max-width: 800px;
+        }
+        
+        .service-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        
+        .service-hero h1 span {
+            color: var(--secondary-color);
+        }
+        
+        .service-hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 600px;
+        }
+        
+        /* أقسام الخدمة */
+        .service-section {
+            margin-bottom: 80px;
+        }
+        
+        .service-section-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--secondary-color);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .service-section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+        
+        .service-feature {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+        
+        .service-feature.reverse {
+            flex-direction: row-reverse;
+        }
+        
+        .service-feature-img {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+        }
+        
+        .service-feature-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+        
+        .service-feature-img:hover img {
+            transform: scale(1.05);
+        }
+        
+        .service-feature-content {
+            flex: 1;
+        }
+        
+        .service-feature-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--light-color);
+        }
+        
+        .service-feature-content p {
+            margin-bottom: 20px;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+        
+        .feature-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .feature-list li {
+            position: relative;
+            padding-right: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .feature-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 0;
+            top: 2px;
+            color: var(--secondary-color);
+        }
+        
+        /* تقنيات السحابة */
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .tech-item {
+            background: rgba(2, 12, 27, 0.7);
+            border-radius: 5px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        .tech-item:hover {
+            transform: translateY(-10px);
+            border-color: rgba(100, 255, 218, 0.3);
+        }
+        
+        .tech-item img {
+            height: 60px;
+            margin-bottom: 20px;
+            object-fit: contain;
+            filter: grayscale(100%) brightness(0.8);
+            transition: var(--transition);
+        }
+        
+        .tech-item:hover img {
+            filter: grayscale(0%) brightness(1);
+        }
+        
+        .tech-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--light-color);
+        }
+        
+        .tech-item p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* عملية النشر السحابي */
+        .dev-process {
+            background: rgba(2, 12, 27, 0.7);
+            padding: 60px;
+            border-radius: 10px;
+            margin-top: 50px;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        .process-steps {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .process-step {
+            flex: 1;
+            min-width: 250px;
+            position: relative;
+            padding: 30px;
+            background: rgba(10, 25, 47, 0.5);
+            border-radius: 5px;
+            border-left: 3px solid var(--secondary-color);
+        }
+        
+        .process-step-number {
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 40px;
+            height: 40px;
+            background: var(--secondary-color);
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .process-step h4 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--light-color);
+        }
+        
+        .process-step p {
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+        
+        /* أنواع الخدمات السحابية */
+        .cloud-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .cloud-type-card {
+            background: rgba(2, 12, 27, 0.7);
+            border-radius: 10px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        .cloud-type-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(100, 255, 218, 0.3);
+        }
+        
+        .cloud-type-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(100, 255, 218, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: var(--secondary-color);
+            font-size: 2rem;
+            border: 1px solid rgba(100, 255, 218, 0.3);
+        }
+        
+        .cloud-type-card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--light-color);
+        }
+        
+        .cloud-type-card p {
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+        
+        /* الاستفسار عن الخدمة */
+        .service-inquiry {
+            background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .service-inquiry .container {
+            max-width: 800px;
+        }
+        
+        /* أنماط الرأس والتذييل */
+        header {
+            position: fixed;
+            top: 40px;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            top: 0;
+            background-color: rgba(10, 25, 47, 0.9);
+            box-shadow: 0 5px 20px rgba(2, 12, 27, 0.7);
+            padding: 15px 0;
+            backdrop-filter: blur(10px);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(10, 25, 47, 0.8);
+            padding: 15px 30px;
+            border-radius: 5px;
+            box-shadow: var(--box-shadow);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo img {
+            height: 40px;
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--light-color);
+            text-decoration: none;
+        }
+        
+        .logo-text span {
+            color: var(--secondary-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        nav ul li a {
+            color: var(--light-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+            left: 0;
+            right: auto;
+        }
+        
+        nav ul li a.active {
+            color: var(--secondary-color);
+            font-weight: 700;
+        }
+        
+        nav ul li a.active::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1002;
+        }
+        
+        /* أنماط التذييل */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 80px 0 30px;
+            position: relative;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+            color: var(--light-color);
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+        
+        .footer-col p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: var(--light-color);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: var(--transition);
+            display: block;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            padding-right: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(100, 255, 218, 0.1);
+            border-radius: 5px;
+            color: var(--light-color);
+            transition: var(--transition);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+        }
+        
+        .footer-social a:hover {
+            background: var(--secondary-color);
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(100, 255, 218, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        /* تأثيرات التمرير */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* تأثيرات الشيفرات البرمجية */
+        .code-effect {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+            opacity: 0.1;
+        }
+        
+        .code-line {
+            position: absolute;
+            font-family: monospace;
+            color: var(--secondary-color);
+            font-size: 1rem;
+            white-space: nowrap;
+            animation: moveCode 20s linear infinite;
+        }
+        
+        @keyframes moveCode {
+            0% {
+                transform: translateY(0) translateX(0);
+            }
+            100% {
+                transform: translateY(-100vh) translateX(-100vw);
+            }
+        }
+        
+        /* أنماط قسم الاتصال */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(100, 255, 218, 0.1);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            border: 1px solid rgba(100, 255, 218, 0.3);
+        }
+        
+        .contact-text h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: var(--light-color);
+        }
+        
+        .contact-text a {
+            color: var(--light-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .contact-text a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .contact-form {
+            background: rgba(2, 12, 27, 0.7);
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: var(--box-shadow);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+            color: var(--light-color);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            background: rgba(100, 255, 218, 0.05);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+            color: var(--light-color);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 2px rgba(100, 255, 218, 0.2);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* التكيف مع الشاشات الصغيرة */
+        @media (max-width: 992px) {
+            .header-container {
+                padding: 15px 20px;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 400px;
+                height: 100vh;
+                background-color: var(--primary-color);
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                transition: var(--transition);
+                z-index: 1001;
+                padding: 80px 30px 30px;
+                backdrop-filter: blur(10px);
+                border-left: 1px solid rgba(100, 255, 218, 0.1);
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul li a {
+                font-size: 1.2rem;
+                color: var(--light-color);
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .close-menu {
+                position: absolute;
+                top: 25px;
+                left: 25px;
+                font-size: 1.8rem;
+                cursor: pointer;
+                color: var(--light-color);
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .service-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .service-feature {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .service-feature.reverse {
+                flex-direction: column;
+            }
+            
+            .service-feature-img, .service-feature-content {
+                width: 100%;
+            }
+            
+            .dev-process {
+                padding: 40px 30px;
+            }
+            
+            .cloud-types {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .service-hero {
+                min-height: 400px;
+                height: auto;
+                padding: 100px 0;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: 40px;
+            }
+            
+            .service-section-title {
+                font-size: 1.6rem;
+            }
+            
+            .process-step {
+                min-width: 100%;
+            }
+            
+            .cloud-types {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .header-container {
+                padding: 10px 15px;
+            }
+            
+            .logo-text {
+                font-size: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .service-hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .dev-process {
+                padding: 30px 20px;
+            }
+            
+            .contact-form {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- تأثيرات الشيفرات البرمجية -->
+    <div class="code-effect" id="codeEffect"></div>
+    
+    <!-- رأس الصفحة -->
+    <header id="header">
+        <div class="container">
+            <div class="header-container">
+                <a href="index.html" class="logo">
+                    <img src="https://via.placeholder.com/40" alt="مستقبل">
+                    <span class="logo-text">مستق<span>بل</span></span>
+                </a>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <nav id="mainNav">
+                     <span class="close-menu" id="closeMenu"></i></span>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="index.html#services">الخدمات</a></li>
+                        <li><a href="index.html#projects">المشاريع</a></li>
+                        <li><a href="index.html#team">الفريق</a></li>
+                        <li><a href="index.html#contact">اتصل بنا</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <!-- قسم البطل للخدمة -->
+    <section class="service-hero">
+        <div class="service-hero-bg"></div>
+        <div class="service-hero-overlay"></div>
+        <div class="container">
+            <div class="service-hero-content">
+                <h1>حلول سحابية <span>متكاملة</span> لتحويل عملك إلى المستقبل</h1>
+                <p>نقدم خدمات سحابية متقدمة تساعد مؤسستك على تحقيق المرونة والتوسع مع توفير أعلى معايير الأمان والموثوقية.</p>
+                <a href="#contact" class="btn">اطلب الخدمة الآن</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- نظرة عامة على الخدمة -->
+    <section class="service-overview">
+        <div class="container">
+            <h2 class="section-title">الخدمات السحابية</h2>
+            <p class="section-subtitle">حلول تقنية متكاملة في السحابة تساعد مؤسستك على النمو والابتكار</p>
+            
+            <div class="service-section">
+                <p>في عصر التحول الرقمي، أصبحت الخدمات السحابية العمود الفقري للشركات الناجحة. نقدم في مستقبل حلول سحابية متكاملة تغطي كافة الاحتياجات، بدءاً من الاستضافة البسيطة وحتى الأنظمة المعقدة المتكاملة مع الذكاء الاصطناعي وتحليل البيانات الكبيرة.</p>
+            </div>
+            
+            <!-- ميزات الخدمة -->
+            <div class="service-section">
+                <h3 class="service-section-title">حلولنا السحابية</h3>
+                
+                <div class="service-feature">
+                    <div class="service-feature-img">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="البنية التحتية السحابية">
+                    </div>
+                    <div class="service-feature-content">
+                        <h3>البنية التحتية السحابية</h3>
+                        <p>حلول متكاملة للبنية التحتية كخدمة (IaaS) توفر مرونة عالية وأداء ممتاز مع أمان متكامل.</p>
+                        <ul class="feature-list">
+                            <li>خوادم افتراضية قابلة للتخصيص</li>
+                            <li>حلول تخزين سحابي آمنة</li>
+                            <li>شبكات افتراضية خاصة</li>
+                            <li>موازنة أحمال تلقائية</li>
+                            <li>نسخ احتياطي واستعادة تلقائية</li>
+                        </ul>
+                        <a href="contact.html" class="btn">ناقش مشروعك معنا</a>
+                    </div>
+                </div>
+                
+                <div class="service-feature reverse">
+                    <div class="service-feature-img">
+                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1080&q=80" alt="المنصات السحابية">
+                    </div>
+                    <div class="service-feature-content">
+                        <h3>المنصات السحابية</h3>
+                        <p>منصات متكاملة كخدمة (PaaS) لتطوير وتشغيل التطبيقات دون الحاجة لإدارة البنية التحتية.</p>
+                        <ul class="feature-list">
+                            <li>بيئات تطوير وتشغيل جاهزة</li>
+                            <li>قواعد بيانات سحابية متكاملة</li>
+                            <li>خدمات الذكاء الاصطناعي والتعلم الآلي</li>
+                            <li>حلول تحليل البيانات الكبيرة</li>
+                            <li>تكامل مع أنظمة CI/CD</li>
+                        </ul>
+                        <a href="contact.html" class="btn">اطلب استشارة مجانية</a>
+                    </div>
+                </div>
+                
+                <div class="service-feature">
+                    <div class="service-feature-img">
+                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="التطبيقات السحابية">
+                    </div>
+                    <div class="service-feature-content">
+                        <h3>التطبيقات السحابية</h3>
+                        <p>حلول برمجية كخدمة (SaaS) جاهزة للاستخدام تغطي كافة احتياجات الأعمال.</p>
+                        <ul class="feature-list">
+                            <li>أنظمة إدارة علاقات العملاء (CRM)</li>
+                            <li>حلول إدارة الموارد البشرية</li>
+                            <li>أنظمة المحاسبة والمالية</li>
+                            <li>منصات التعاون والعمل عن بعد</li>
+                            <li>حلول إدارة المشاريع والمهام</li>
+                        </ul>
+                        <a href="come soon.html" class="btn">تعرف على المزيد</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- أنواع الخدمات السحابية -->
+            <div class="service-section">
+                <h3 class="service-section-title">أنواع الخدمات السحابية التي نقدمها</h3>
+                <p>نغطي كافة أنواع الخدمات السحابية لضمان تلبية احتياجات عملائنا المتنوعة:</p>
+                
+                <div class="cloud-types">
+                    <div class="cloud-type-card">
+                        <div class="cloud-type-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <h4>البنية التحتية السحابية</h4>
+                        <p>حلول متكاملة للبنية التحتية توفر خوادم افتراضية، تخزين سحابي، وشبكات آمنة.</p>
+                        <a href="come soon.html" class="btn btn-accent">المزيد</a>
+                    </div>
+                    
+                    <div class="cloud-type-card">
+                        <div class="cloud-type-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h4>قواعد البيانات السحابية</h4>
+                        <p>حلول قواعد بيانات متكاملة مع إدارة تلقائية ونسخ احتياطي مستمر.</p>
+                        <a href="come soon.html" class="btn btn-accent">المزيد</a>
+                    </div>
+                    
+                    <div class="cloud-type-card">
+                        <div class="cloud-type-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h4>الذكاء الاصطناعي السحابي</h4>
+                        <p>خدمات تعلم آلي ومعالجة اللغات الطبيعية جاهزة للاستخدام.</p>
+                        <a href="come soon.html" class="btn btn-accent">المزيد</a>
+                    </div>
+                    
+                    <div class="cloud-type-card">
+                        <div class="cloud-type-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4>تحليلات البيانات الكبيرة</h4>
+                        <p>منصات متكاملة لتحليل البيانات الضخمة واستخراج الرؤى القيمة.</p>
+                        <a href="come soon.html" class="btn btn-accent">المزيد</a>
+                    </div>
+                    
+                    <div class="cloud-type-card">
+                        <div class="cloud-type-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>الأمن السحابي</h4>
+                        <p>حلول متكاملة لحماية البيانات والتطبيقات في السحابة.</p>
+                        <a href="come soon.html" class="btn btn-accent">المزيد</a>
+                    </div>
+                    
+                    <div class="cloud-type-card">
+                        <div class="cloud-type-icon">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <h4>الهجين والمتعدد السحابة</h4>
+                        <p>حلول متكاملة لإدارة بيئات متعددة السحابة والهجينة.</p>
+                        <a href="come soon.html" class="btn btn-accent">المزيد</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- التقنيات المستخدمة -->
+            <div class="service-section">
+                <h3 class="service-section-title">منصات السحابة التي نعمل معها</h3>
+                <p>نعتمد على أفضل منصات السحابة العالمية لضمان تقديم حلول عالية الجودة:</p>
+                
+                <div class="tech-stack">
+                    <div class="tech-item">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" alt="AWS">
+                        <h4>AWS</h4>
+                        <p>حلول سحابية متكاملة من أمازون</p>
+                    </div>
+                    
+                    <div class="tech-item">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="Google Cloud">
+                        <h4>Google Cloud</h4>
+                        <p>منصة جوجل السحابية المتكاملة</p>
+                    </div>
+                    
+                    <div class="tech-item">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure">
+                        <h4>Microsoft Azure</h4>
+                        <p>حلول مايكروسوفت السحابية</p>
+                    </div>
+                    
+                    <div class="tech-item">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" alt="Oracle Cloud">
+                        <h4>Oracle Cloud</h4>
+                        <p>منصة أوراكل السحابية</p>
+                    </div>
+                    
+                    <div class="tech-item">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker">
+                        <h4>Docker</h4>
+                        <p>حاويات التطبيقات السحابية</p>
+                    </div>
+                    
+                    <div class="tech-item">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes">
+                        <h4>Kubernetes</h4>
+                        <p>إدارة الحاويات والتطبيقات الموزعة</p>
+                    </div>
+                    
+                    <div class="tech-item">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" alt="Terraform">
+                        <h4>Terraform</h4>
+                        <p>إدارة البنية التحتية ككود</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- عملية النشر السحابي -->
+            <div class="service-section">
+                <h3 class="service-section-title">عملية النشر السحابي لدينا</h3>
+                <p>نتبع منهجية واضحة وشفافة تضمن تقديم حل سحابي آمن وموثوق:</p>
+                
+                <div class="dev-process">
+                    <div class="process-steps">
+                        <div class="process-step">
+                            <div class="process-step-number">1</div>
+                            <h4>التقييم والتخطيط</h4>
+                            <p>نقوم بتحليل احتياجاتك الحالية والمستقبلية لتحديد أفضل حل سحابي.</p>
+                        </div>
+                        
+                        <div class="process-step">
+                            <div class="process-step-number">2</div>
+                            <h4>تصميم الحل السحابي</h4>
+                            <p>نصمم بنية سحابية متكاملة مع مراعاة الأمان والأداء والتكلفة.</p>
+                        </div>
+                        
+                        <div class="process-step">
+                            <div class="process-step-number">3</div>
+                            <h4>الهجرة والنشر</h4>
+                            <p>ننفذ عملية الهجرة بسلاسة مع ضمان عدم توقف الخدمات.</p>
+                        </div>
+                        
+                        <div class="process-step">
+                            <div class="process-step-number">4</div>
+                            <h4>التحسين والتكامل</h4>
+                            <p>نقوم بتحسين الأداء وتكامل الحل مع أنظمتك الحالية.</p>
+                        </div>
+                        
+                        <div class="process-step">
+                            <div class="process-step-number">5</div>
+                            <h4>الإدارة والمراقبة</h4>
+                            <p>نقدم حلول إدارة ومراقبة مستمرة لضمان استقرار البيئة السحابية.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- لماذا نختارنا -->
+            <div class="service-section">
+                <h3 class="service-section-title">لماذا تختار مستقبل للحلول السحابية؟</h3>
+                
+                <div class="service-feature reverse">
+                    <div class="service-feature-img">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="فريق الخبراء">
+                    </div>
+                    <div class="service-feature-content">
+                        <h3>خبراء معتمدون في السحابة</h3>
+                        <p>فريقنا من المهندسين والمهندسات معتمد من كبرى منصات السحابة العالمية ويتمتع بخبرة واسعة في تقديم حلول متكاملة.</p>
+                        <ul class="feature-list">
+                            <li>مهندسون معتمدون من AWS و Azure و Google Cloud</li>
+                            <li>خبراء في أمن السحابة وحماية البيانات</li>
+                            <li>متخصصون في تحسين التكاليف والأداء</li>
+                            <li>فرع متكامل لإدارة العمليات السحابية</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="service-feature">
+                    <div class="service-feature-img">
+                        <img src="https://images.unsplash.com/photo-1579389083078-4e7018379f7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="جودة الخدمة">
+                    </div>
+                    <div class="service-feature-content">
+                        <h3>جودة وموثوقية عالية</h3>
+                        <p>نلتزم بأعلى معايير الجودة في كل مرحلة من مراحل التطوير والنشر، مع ضمان توفر بنسبة 99.9%.</p>
+                        <ul class="feature-list">
+                            <li>بنية تحتية متعددة المناطق للتعافي من الكوارث</li>
+                            <li>مراقبة مستمرة للأداء والأمان</li>
+                            <li>خطط نسخ احتياطي متكاملة</li>
+                            <li>حلول أمنية متعددة الطبقات</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="service-feature reverse">
+                    <div class="service-feature-img">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="الدعم المستمر">
+                    </div>
+                    <div class="service-feature-content">
+                        <h3>دعم فني متكامل</h3>
+                        <p>نقدم حزمة دعم شاملة تشمل المراقبة المستمرة، التحديثات الأمنية، والتدخل السريع عند الحاجة.</p>
+                        <ul class="feature-list">
+                            <li>دعم فني على مدار الساعة</li>
+                            <li>فرق متخصصة لكل منصة سحابية</li>
+                            <li>تقارير أداء و أمان شهرية</li>
+                            <li>تدريب الفرق التقنية على إدارة السحابة</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- قسم الاستفسار عن الخدمة -->
+    <section class="service-inquiry">
+        <div class="container">
+            <h2 class="section-title">جاهزون لتحويل عملك إلى السحابة؟</h2>
+            <p class="section-subtitle">اتصل بنا اليوم لمناقشة متطلباتك وسنقدم لك الحل الأمثل لتحقيق أهدافك</p>
+            <a href="#contact" class="btn btn-accent">اطلب استشارة مجانية</a>
+        </div>
+    </section>
+    
+    <!-- التذييل -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>عن مستقبل</h3>
+                    <p>شركة رائدة في مجال الحلول التقنية المتقدمة، نقدم خدمات متكاملة تساعد مؤسستك على التحول الرقمي والتفوق في عصر التكنولوجيا.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-dev"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="index.html#services">الخدمات</a></li>
+                        <li><a href="index.html#projects">المشاريع</a></li>
+                        <li><a href="index.html#team">الفريق</a></li>
+                        <li><a href="index.html#contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>خدماتنا</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">تطوير البرمجيات</a></li>
+                        <li><a href="#">تطبيقات الجوال</a></li>
+                        <li><a href="#">الحلول السحابية</a></li>
+                        <li><a href="#">الذكاء الاصطناعي</a></li>
+                        <li><a href="#">الأمن السيبراني</a></li>
+                        <li><a href="#">كاميرات المراقبة</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>النشرة البريدية</h3>
+                    <p>اشترك في نشرتنا البريدية لتصلك آخر أخبارنا وعروضنا.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="بريدك الإلكتروني" class="form-control">
+                        <button type="submit" class="btn">اشتراك</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 مستقبل. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // تأثيرات الشيفرات البرمجية
+        const codeEffect = document.getElementById('codeEffect');
+        const codeLines = [
+            'const cloud = new CloudSolution();',
+            'function deploy() { return reliability; }',
+            'class AWS { constructor() { this.scalability = "infinite"; } }',
+            'async function migrate() { await cloudServices(); }',
+            'const security = new CloudSecurity();',
+            'let performance = new HighAvailability();',
+            'while(true) { optimize(); }',
+            'export default cloudInfrastructure;',
+            '// مستقبل السحابة يبدأ هنا',
+            'interface CloudService { deploy(): boolean; }',
+            'type CloudFeatures = { Security: boolean; Scalability: boolean; }',
+            'const solutions: CloudService[] = [];'
+        ];
+        
+        for (let i = 0; i < 20; i++) {
+            const codeLine = document.createElement('div');
+            codeLine.className = 'code-line';
+            codeLine.textContent = codeLines[Math.floor(Math.random() * codeLines.length)];
+            codeLine.style.top = Math.random() * 100 + 'vh';
+            codeLine.style.left = Math.random() * 100 + 'vw';
+            codeLine.style.animationDuration = (Math.random() * 20 + 10) + 's';
+            codeLine.style.animationDelay = (Math.random() * 5) + 's';
+            codeEffect.appendChild(codeLine);
+        }
+        
+        // التنقل المتنقل
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const closeMenu = document.getElementById('closeMenu');
+        const mainNav = document.getElementById('mainNav');
+        
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            mainNav.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeMenu.addEventListener('click', () => {
+            mainNav.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
+        // إغلاق القائمة عند النقر خارجها
+        document.addEventListener('click', (e) => {
+            if (!mainNav.contains(e.target) && !mobileMenuBtn.contains(e.target) && mainNav.classList.contains('active')) {
+                mainNav.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // إغلاق القائمة عند النقر على رابط
+        document.querySelectorAll('#mainNav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // تثبيت الرأس عند التمرير
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // تأثير التمرير السلس
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // تأثير الظهور عند التمرير
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', fadeInOnScroll);
+        window.addEventListener('load', fadeInOnScroll);
+        
+        // إرسال نموذج الاتصال
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // هنا يمكنك إضافة كود إرسال النموذج
+            alert('تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.');
+            contactForm.reset();
+        });
+    </script>
+</body>
+</html>
